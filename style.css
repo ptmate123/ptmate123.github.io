@@ -1,16 +1,44 @@
 body {
-    background-color: black;
     margin: 10px;
+    transition: background-color 0.5s;
+}
+
+.theme-night {
+    --font-color: green;
+    --split-color: #aaa;
+    --btn-hover-color: white;
+    --pf-img-border-color: white;
+    --pf-img-shadow-color: white;
+    --name-color: white;
+    --name-shadow-color: white;
+    --theme-btn-img: url("assets/night.png");
+    --theme-btn-color: #013e62;
+    --start-btn-color: #282828;
+    background-color: #041004;
+}
+
+.theme-day {
+    --font-color: black;
+    --split-color: #333;
+    --btn-hover-color: white;
+    --pf-img-border-color: #444;
+    --pf-img-shadow-color: #444;
+    --name-color: black;
+    --name-shadow-color: white;
+    --theme-btn-img: url("assets/day.png");
+    --theme-btn-color: #eed600;
+    --start-btn-color: #888;
+    background-color: #f8db9d;
 }
 
 * {
-    color: green;
+    color: var(--font-color);
     font-family: 'Courier New';
     font-weight: 800;
 }
 
 .split {
-    color: #aaa;
+    color: var(--split-color);
 }
 
 h1 {
@@ -30,9 +58,10 @@ h1 {
 
 .pf-img {
     margin: 40px;
-    border: 4px solid white;
+    border: 4px solid var(--pf-img-border-color);
     border-radius: 30px;
-    box-shadow: 0 0 25px white;
+    box-shadow: 0 0 25px var(--pf-img-shadow-color);
+    transition: border 0.5s;
 }
 
 .pf-content {
@@ -40,30 +69,6 @@ h1 {
     line-height: 40px;
     font-size: 120%;
     flex-shrink: 0;
-}
-
-.github-link {
-    z-index: 999;
-    position: fixed;
-    right: 2em;
-    bottom: 2em;
-    width: 80px;
-    height: 80px;
-
-    border-radius: 20px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.1);
-    background-image: url("assets/github-icon.png");
-    background-color: #272627;
-    background-size: 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: border-color 0.25s;
-}
-
-.github-link:hover {
-    border-color: white;
 }
 
 h2 {
@@ -105,8 +110,8 @@ h2 {
 }
 
 .mg-name {
-    text-shadow: 0 0 6px white;
-    color: white;
+    text-shadow: 0 0 6px var(--name-shadow-color);
+    color: var(--name-color);
     font-size: 25px;
     text-wrap: nowrap;
     margin-bottom: 30px;
@@ -116,13 +121,56 @@ h2 {
     text-decoration: none;
     padding: 10px;
     border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.1);
-    background-color: #282828;
-    transition: border-color 0.25s;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--start-btn-color);
+    transition: border 0.25s;
 }
 
 .mg-start:hover {
-    border-color: rgba(255, 255, 255);
+    border-color: var(--btn-hover-color);
+}
+
+.github-link {
+    position: fixed;
+    z-index: 999;
+    left: 2em;
+    bottom: 2em;
+    width: 80px;
+    height: 80px;
+
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-image: url("assets/github-icon.png");
+    background-color: #272627;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: border 0.25s;
+}
+
+.github-link:hover {
+    border-color: var(--btn-hover-color);
+}
+
+.theme-button {
+    position: fixed;
+    z-index: 999;
+    width: 80px;
+    height: 80px;
+    right: 2em;
+    bottom: 2em;
+    border-radius: 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--theme-btn-color);
+    background-image: var(--theme-btn-img);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: border-color 0.25s;
+}
+
+.theme-button:hover {
+    border-color: var(--btn-hover-color);
 }
